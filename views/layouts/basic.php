@@ -7,12 +7,11 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="en">
+    <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title>Document</title>
+    <title><?= $this->title ?></title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -30,6 +29,10 @@ AppAsset::register($this);
                 <?=Html::a('Статья', ['post/show'])?>
             </li>
         </ul>
+
+            <?php if( isset($this->blocks['block1'])): ?>
+                <?php echo $this->blocks['block1'] ?>
+            <?php endif; ?>
         <?=$content?>
     </div>
 </div>
